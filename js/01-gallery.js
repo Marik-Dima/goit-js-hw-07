@@ -26,6 +26,16 @@ function onGalleryImgClickHandler(event) {
         return
     }
     console.log(event.target);
-    const imgBox = basicLightbox.create(`<img src="${event.target.dataset.source}" width="800" height="600"/>`);
+    const imgBox = basicLightbox.create(`<img src="${event.target.dataset.source}" width="800" height="600"/>`, {
+    onShow: () => document.addEventListener("keydown",keyDownHandler),
+    onClose: () => document.removeEventListener("keydown", keyDownHandler),
+    });
     imgBox.show();
+
+    function keyDownHandler(event) { 
+        if (event.code === "Escape") { 
+            imgBox.close();
+        }
+    }
 }
+
