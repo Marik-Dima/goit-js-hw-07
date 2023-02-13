@@ -26,6 +26,6 @@ function onGalleryImgClickHandler(event) {
         return
     }
     console.log(event.target);
-    const imgBox = basicLightbox.create(`<img src="${event.target.dataset.source}"/>`);
+    const imgBox = basicLightbox.create(`<img src="${event.target.dataset.source}" width="800" height="600"/>`);
     imgBox.show();
 }
